@@ -1,6 +1,12 @@
 .Dictionary {
   max-width: 600px;
   margin: 50px;
+  text-align: center;
+}
+
+.search {
+  border: 2px solid lightgray;
+  margin-bottom: 20px;
 }
 
 .App-footer {
