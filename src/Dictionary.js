@@ -11,17 +11,28 @@ export default function Dictionary() {
     console.log(response.data[0]);
     setResults(response.data[0]);
   }
-
-  function search(event) {
-    event.preventDefault();
-    alert(`Searching for ${keyword}..`);
-  }
-  let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
-  axios.get(apiUrl).then(handleResponse);
-
   function handleKeywordChange(event) {
     setKeyword(event.target.value);
   }
+
+  function search(event) {
+    event.preventDefault();
+
+    if (!keyword.trim()) {
+      alert("Please enter a word.");
+      return;
+    }
+
+    const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
+    axios
+      .get(apiUrl)
+      .then(handleResponse)
+      .catch((error) => {
+        console.error("API error:", error);
+        alert("Word not found or API issue.");
+      });
+  }
+
   return (
     <div className="Dictionary">
       <form onSubmit={search}>
@@ -29,6 +40,7 @@ export default function Dictionary() {
           type="search"
           onChange={handleKeywordChange}
           className="search"
+          value={keyword}
         />
       </form>
 
