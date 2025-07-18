@@ -24,7 +24,8 @@ export default function Dictionary(props) {
     const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
     axios.get(apiUrl).then(handleDictionResponse);
 
-    let pexelsApiKey = "process.env.REACT_APP_PEXELS_KEY;";
+    let pexelsApiKey =
+      "w6iyLGH3RtDc0o6Dp6zn6nyFRVQSvlWO9lqANzeLgQk3T0NmW0SIqROT";
     let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=9`;
 
     axios
