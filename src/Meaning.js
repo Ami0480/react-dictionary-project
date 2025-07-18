@@ -9,15 +9,12 @@ export default function Meaning(props) {
       <h3>{props.meaning.partOfSpeech}</h3>
       <div>
         {" "}
-        <p className="definition">
-          {props.meaning.definitions[0].definition}
-          <br />
-
-          <em className="example">
-            {props.meaning.definitions?.[0]?.example || "No example available."}
-          </em>
-          <Synonyms synonyms={props.meaning.definitions[0].synonyms} />
-        </p>
+        <p className="definition">{props.meaning.definitions[0].definition}</p>
+        <br />
+        <em className="example">
+          {props.meaning.definitions?.[0]?.example || "No example available."}
+        </em>
+        <Synonyms synonyms={props.meaning.definitions[0].synonyms} />
       </div>
     </div>
   );
